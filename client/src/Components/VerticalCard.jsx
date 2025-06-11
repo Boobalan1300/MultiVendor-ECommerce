@@ -37,7 +37,7 @@ const VerticalCard = ({
       </div>
 
       <h3 className={` ${fontSize} ${fontWeight}`} style={{ marginBottom: 4 }}>
-        {product.title}
+        {product.name || product.title}
       </h3>
 
       <div style={{ color: '#e91e63', fontWeight: 'bold', marginBottom: showExtras ? 4 : 0 }}>
