@@ -1,0 +1,81 @@
+/* Layout */
+.adminLayout {
+  height: 90vh;
+  display: flex;
+}
+
+.siteLayout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sider */
+.adminSider {
+  position: sticky;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #ffffff;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  transition: background-color 0.3s ease;
+}
+
+.adminSider::-webkit-scrollbar {
+  width: 6px;
+}
+
+.adminSider::-webkit-scrollbar-thumb {
+  background-color: rgba(176, 156, 156, 0.2);
+  border-radius: 3px;
+}
+
+/* Logo area inside sider */
+.logo {
+  height: 64px;
+  margin: 16px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 64px;
+  text-align: center;
+}
+
+
+
+
+/* Default icon color */
+
+/* Header */
+.adminHeader {
+  padding: 0 16px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* Header toggle button */
+.adminHeaderButton {
+  font-size: 18px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  color: #03036b;
+  transition: color 0.3s ease;
+  border-radius: 6px;
+}
+
+
+/* Content */
+.adminContent {
+  margin: 24px 16px 16px;
+  padding: 24px;
+  min-height: 280px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  overflow-y: auto;
+}
