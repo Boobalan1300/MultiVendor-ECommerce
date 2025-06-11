@@ -1,0 +1,12 @@
+{
+  "name": "vendor-json-server",
+  "version": "1.0.0",
+  "description": "JSON Server for vendor app",
+  "main": "db.json",
+  "scripts": {
+    "start": "json-server --watch db.json --port 5000 "
+  },
+  "dependencies": {
+    "json-server": "^1.0.0"
+  }
+}
