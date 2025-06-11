@@ -5,7 +5,7 @@ export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async ({ email, password }, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:5000/users?email=${email}&password=${password}`);
+      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/users?email=${email}&password=${password}`);
       const data = await res.json();
 
       if (data.length > 0) {

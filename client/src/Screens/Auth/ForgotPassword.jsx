@@ -7,7 +7,7 @@ const ForgotPassword = () => {
 
   const handleSubmit = async ({ email }) => {
     try {
-      const res = await fetch(`http://localhost:5000/users?email=${email}`);
+      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/users?email=${email}`);
       const data = await res.json();
 
       if (data.length > 0) {

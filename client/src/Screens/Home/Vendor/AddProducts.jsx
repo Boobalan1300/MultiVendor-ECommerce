@@ -60,7 +60,7 @@
 //       setSubmitting(true);
 
 //       // Fetch existing products to ensure unique ID
-//       const res = await fetch('http://localhost:5000/products');
+//       const res = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/products');
 //       const products = await res.json();
 //       const existingIds = new Set(products.map(p => p.id));
 
@@ -81,7 +81,7 @@
 //         image: imageBase64,
 //       };
 
-//       const response = await fetch('http://localhost:5000/products', {
+//       const response = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/products', {
 //         method: 'POST',
 //         headers: { 'Content-Type': 'application/json' },
 //         body: JSON.stringify(newProduct),
@@ -260,9 +260,10 @@ const AddProduct = () => {
       }
 
       setSubmitting(true);
+     
 
       // Fetch existing products to ensure unique ID
-      const res = await fetch('http://localhost:5000/products');
+      const res = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/products');
       const products = await res.json();
       const existingIds = new Set(products.map(p => p.id));
 
@@ -283,7 +284,7 @@ const AddProduct = () => {
         image: imageBase64,
       };
 
-      const response = await fetch('http://localhost:5000/products', {
+      const response = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newProduct),

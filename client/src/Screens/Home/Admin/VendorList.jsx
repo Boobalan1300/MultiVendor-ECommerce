@@ -13,7 +13,7 @@
 //   const fetchVendors = async () => {
 //     setLoading(true);
 //     try {
-//       const response = await fetch('http://localhost:5000/users');
+//       const response = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/users');
 //       if (!response.ok) {
 //         throw new Error('Failed to fetch vendors');
 //       }
@@ -35,7 +35,7 @@
 //   const handleToggleBlock = async (vendor) => {
 //     setActionVendorId(vendor.id);
 //     try {
-//       const res = await fetch(`http://localhost:5000/users/${vendor.id}`, {
+//       const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/users/${vendor.id}`, {
 //         method: 'PATCH',
 //         headers: { 'Content-Type': 'application/json' },
 //         body: JSON.stringify({ blocked: !vendor.blocked }),
@@ -156,7 +156,7 @@ const VendorList = () => {
   const fetchVendors = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/users');
+      const response = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/users');
       if (!response.ok) {
         throw new Error('Failed to fetch vendors');
       }
@@ -178,7 +178,7 @@ const VendorList = () => {
   const handleToggleBlock = async (vendor) => {
     setActionVendorId(vendor.id);
     try {
-      const res = await fetch(`http://localhost:5000/users/${vendor.id}`, {
+      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/users/${vendor.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ blocked: !vendor.blocked }),

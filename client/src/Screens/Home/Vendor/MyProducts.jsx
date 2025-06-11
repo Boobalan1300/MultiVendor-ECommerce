@@ -36,7 +36,7 @@
 //     const fetchProducts = async () => {
 //       setLoading(true);
 //       try {
-//         const res = await fetch(`http://localhost:5000/products?vendorId=${user.id}`);
+//         const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products?vendorId=${user.id}`);
 //         if (!res.ok) throw new Error('Failed to fetch products');
 //         const data = await res.json();
 //         setProducts(data);
@@ -61,7 +61,7 @@
 //   const handleUpdate = async () => {
 //     try {
 //       const values = await form.validateFields();
-//       const res = await fetch(`http://localhost:5000/products/${editingProduct.id}`, {
+//       const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products/${editingProduct.id}`, {
 //         method: 'PUT',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -88,7 +88,7 @@
 //   const handleDelete = async (id) => {
 //     try {
 //       // Call DELETE API
-//       const res = await fetch(`http://localhost:5000/products/${id}`, {
+//       const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products/${id}`, {
 //         method: 'DELETE',
 //       });
 
@@ -282,7 +282,7 @@ const MyProducts = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:5000/products?vendorId=${user.id}`);
+        const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products?vendorId=${user.id}`);
         if (!res.ok) throw new Error('Failed to fetch products');
         const data = await res.json();
         setProducts(data);
@@ -305,7 +305,7 @@ const MyProducts = () => {
   const handleUpdate = async () => {
     try {
       const values = await form.validateFields();
-      const res = await fetch(`http://localhost:5000/products/${editingProduct.id}`, {
+      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products/${editingProduct.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...editingProduct, ...values }),
@@ -325,7 +325,7 @@ const MyProducts = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/products/${id}`, {
+      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products/${id}`, {
         method: 'DELETE',
       });
 

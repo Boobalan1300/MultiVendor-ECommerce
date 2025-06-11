@@ -11,7 +11,7 @@
 //   const fetchUsers = async () => {
 //     setLoading(true);
 //     try {
-//       const response = await fetch('http://localhost:5000/users');
+//       const response = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/users');
 //       if (!response.ok) {
 //         throw new Error('Failed to fetch users');
 //       }
@@ -32,7 +32,7 @@
 //   const handleToggleBlock = async (user) => {
 //     setActionUserId(user.id);
 //     try {
-//       const res = await fetch(`http://localhost:5000/users/${user.id}`, {
+//       const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/users/${user.id}`, {
 //         method: 'PATCH',
 //         headers: { 'Content-Type': 'application/json' },
 //         body: JSON.stringify({ blocked: !user.blocked }),
@@ -152,7 +152,7 @@ const UserList = () => {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/users');
+      const response = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/users');
       if (!response.ok) {
         throw new Error('Failed to fetch users');
       }
@@ -174,7 +174,7 @@ const UserList = () => {
   const handleToggleBlock = async (user) => {
     setActionUserId(user.id);
     try {
-      const res = await fetch(`http://localhost:5000/users/${user.id}`, {
+      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/users/${user.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ blocked: !user.blocked }),

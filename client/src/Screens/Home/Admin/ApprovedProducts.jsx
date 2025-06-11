@@ -26,7 +26,7 @@ const ApprovedProducts = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/products?approved=true');
+      const res = await fetch(' https://multivendor-ecommerce-server-3.onrender.com/products?approved=true');
       if (!res.ok) throw new Error('Failed to fetch products');
       const data = await res.json();
       setProducts(data);
@@ -46,7 +46,7 @@ const ApprovedProducts = () => {
     setVendorLoading(true);
     setVendorDetails(null);
     try {
-      const res = await fetch(`http://localhost:5000/users/${vendorId}`);
+      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/users/${vendorId}`);
       if (!res.ok) throw new Error('Failed to fetch vendor details');
       const data = await res.json();
       setVendorDetails(data);

@@ -25,7 +25,7 @@ const ResetPassword = () => {
       setLoading(true);
 
       // 2. Update password using user ID
-      const res = await fetch(`http://localhost:5000/users/${user.id}`, {
+      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/users/${user.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'

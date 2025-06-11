@@ -18,7 +18,8 @@ const Products = () => {
         }
         const data = await res.json();
 
-        const approvedProducts = data.filter((product) => product.approved);
+       const approvedProducts = data.filter((product) => String(product.approved).toLowerCase() === "true");
+
 
         // Optional: Prevent duplicates based on product ID
         const existingIds = new Set(defaultProducts.map(p => p.id));
