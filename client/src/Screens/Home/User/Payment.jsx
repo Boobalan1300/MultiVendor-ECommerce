@@ -46,7 +46,7 @@ const Payment = () => {
 
 
     return (
-        <div style={{ maxWidth: 1200, margin: 'auto', padding: 24 }}>
+        <div style={{ maxWidth: 1400, margin: 'auto' }}>
 
 
             <Row gutter={32}>
@@ -98,7 +98,7 @@ const Payment = () => {
                                     </Col>
                                 </Row>
 
-                                <Button type="primary" onClick={next} block>
+                                <Button type="primary" onClick={next} block style={{marginBottom:"20px"}}>
                                     Continue to Payment
                                 </Button>
                             </Form>
@@ -158,7 +158,7 @@ const Payment = () => {
                                     </Col>
                                 </Row>
 
-                                <Row justify="space-between" gutter={16}>
+                                <Row justify="space-between" gutter={16} style={{marginBottom:"20px"}}>
                                     <Col>
                                         <Button onClick={prev}>Return to Shipping</Button>
                                     </Col>
@@ -187,7 +187,7 @@ const Payment = () => {
 
                             <Divider />
 
-                            <Row justify="space-between">
+                            <Row justify="space-between" style={{marginBottom:"20px"}}>
                                 <Col>
                                     <Button onClick={prev}>Back to Payment</Button>
                                 </Col>
@@ -202,7 +202,7 @@ const Payment = () => {
                 </Col>
 
                 {/* RIGHT: ORDER SUMMARY */}
-                <Col xs={24} md={8}>
+                <Col xs={24} md={8} style={{backgroundColor:"#f6fff2",padding:20,borderRadius:20}}>
                     <Title level={4}>Order Summary</Title>
 
                     <Row justify="space-between">

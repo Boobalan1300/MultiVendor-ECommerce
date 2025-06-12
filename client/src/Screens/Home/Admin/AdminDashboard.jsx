@@ -5,7 +5,7 @@ const { Title, Text } = Typography;
 
 const AdminDashboard = () => {
 
-  // Table columns with sorting & filtering
+
 
 
   return (
@@ -16,26 +16,26 @@ const AdminDashboard = () => {
 
       {/* Overview cards */}
       <Row gutter={[24, 24]}>
-        <Col xs={24} sm={12} md={6}>
-          <Card hoverable>
+        <Col xs={24} sm={12} md={6} >
+          <Card hoverable style={{backgroundColor:"#ffedff"}}>
             <Title level={4}>Total Users</Title>
             <Text strong style={{ fontSize: 28 }}>1,234</Text>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
-          <Card hoverable>
+          <Card hoverable style={{backgroundColor:"#ffedff"}}>
             <Title level={4}>Products</Title>
             <Text strong style={{ fontSize: 28 }}>345</Text>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
-          <Card hoverable>
+          <Card hoverable style={{backgroundColor:"#ffedff"}}>
             <Title level={4}>Orders</Title>
             <Text strong style={{ fontSize: 28 }}>789</Text>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
-          <Card hoverable>
+          <Card hoverable style={{backgroundColor:"#ffedff"}}>
             <Title level={4}>Revenue</Title>
             <Text strong style={{ fontSize: 28 }}>₹1,20,000</Text>
           </Card>

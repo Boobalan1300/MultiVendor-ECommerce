@@ -1,10 +1,12 @@
 import React from 'react'
 
 const Title = ({
-    children
+    children,
+    style = {},
+     
 }) => {
   return (
-     <h3>
+     <h3 style={style}>
         {children}
      </h3>
   )

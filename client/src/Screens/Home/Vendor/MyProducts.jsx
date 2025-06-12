@@ -259,11 +259,10 @@
 
 
 
-
 import React, { useEffect, useState } from 'react';
 import {
   Table, Input, InputNumber, Select, Space, message,
-  Spin, Modal, Form, Button, Tag,
+  Spin, Modal, Form, Button, Tag, Image,
 } from 'antd';
 import { useSelector } from 'react-redux';
 
@@ -276,26 +275,39 @@ const MyProducts = () => {
   const [editingProduct, setEditingProduct] = useState(null);
   const [form] = Form.useForm();
 
-  useEffect(() => {
-    if (!user) return;
+useEffect(() => {
+  if (!user) return;
 
-    const fetchProducts = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products?vendorId=${user.id}`);
-        if (!res.ok) throw new Error('Failed to fetch products');
-        const data = await res.json();
-        setProducts(data);
-      } catch (err) {
-        console.error(err);
-        message.error('Failed to load products');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`https://multivendor-ecommerce-server-3.onrender.com/products?vendorId=${user.id}`);
+      const text = await res.text();
 
-    fetchProducts();
-  }, [user]);
+      // Debug: check how much was received
+      console.log('Raw JSON from server:', text.slice(0, 500));
+
+      // Try to find the last valid closing bracket of the JSON array
+      const trimmedText = text.trim();
+      const lastIndex = trimmedText.lastIndexOf(']');
+
+      if (lastIndex === -1) throw new Error('Malformed JSON (no closing bracket)');
+
+      const safeText = trimmedText.substring(0, lastIndex + 1);
+      const data = JSON.parse(safeText);
+
+      setProducts(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error('Invalid JSON or network issue:', err);
+      message.error('Failed to load products');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProducts();
+}, [user]);
+
 
   const handleEdit = (product) => {
     setEditingProduct(product);
@@ -305,7 +317,7 @@ const MyProducts = () => {
   const handleUpdate = async () => {
     try {
       const values = await form.validateFields();
-      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products/${editingProduct.id}`, {
+      const res = await fetch(`https://multivendor-ecommerce-server-3.onrender.com/products/${editingProduct.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...editingProduct, ...values }),
@@ -325,7 +337,7 @@ const MyProducts = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(` https://multivendor-ecommerce-server-3.onrender.com/products/${id}`, {
+      const res = await fetch(`https://multivendor-ecommerce-server-3.onrender.com/products/${id}`, {
         method: 'DELETE',
       });
 
@@ -348,26 +360,41 @@ const MyProducts = () => {
       title: 'Image',
       dataIndex: 'image',
       key: 'image',
-      render: (image) => (
-        <img src={image} alt="product" style={{ width: 60, height: 60, objectFit: 'cover', borderRadius: 4 }} />
-      ),
+      render: (image) => {
+        if (!image || typeof image !== 'string' || !image.startsWith('data:image')) {
+          return <span>No Image</span>;
+        }
+        return (
+          <Image
+            src={image}
+            alt="product"
+            width={60}
+            height={60}
+            style={{ objectFit: 'cover', borderRadius: 4 }}
+            fallback="https://via.placeholder.com/60"
+          />
+        );
+      },
     },
-    { title: 'Name', dataIndex: 'name' },
+    { title: 'Name', dataIndex: 'name', key: 'name' },
     {
       title: 'Category',
       dataIndex: 'category',
+      key: 'category',
       filters: Array.from(new Set(products.map(p => p.category))).map(c => ({ text: c, value: c })),
       onFilter: (value, record) => record.category === value,
     },
     {
       title: 'Subcategory',
       dataIndex: 'subcategory',
+      key: 'subcategory',
       filters: Array.from(new Set(products.map(p => p.subcategory))).map(s => ({ text: s, value: s })),
       onFilter: (value, record) => record.subcategory === value,
     },
     {
       title: 'Price',
       dataIndex: 'price',
+      key: 'price',
       sorter: (a, b) => a.price - b.price,
       render: (price) => `₹${price}`,
     },
@@ -394,6 +421,7 @@ const MyProducts = () => {
     },
     {
       title: 'Actions',
+      key: 'actions',
       render: (_, record) => (
         <Space>
           <Button type="link" onClick={() => handleEdit(record)}>Edit</Button>
@@ -409,7 +437,7 @@ const MyProducts = () => {
         columns={columns}
         dataSource={products}
         rowKey="id"
-        pagination={false}
+        pagination={{ pageSize: 6 }}
         style={{ marginTop: 20 }}
         bordered={false}
       />
@@ -450,25 +478,3 @@ const MyProducts = () => {
 };
 
 export default MyProducts;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -38,8 +38,8 @@ const Products = () => {
   }, []);
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 16 }}>
-      {loading && <Spin size="large" style={{ display: 'block', margin: '30px auto' }} />}
+    <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+     
       {error && <Alert message="Error" description={error} type="error" showIcon />}
       
       <Row gutter={[16, 16]}>
@@ -48,7 +48,7 @@ const Products = () => {
             <VerticalCard
               product={product}
               fontSize="text-xl"
-              imageHeight={180}
+              imageHeight={150}
               showDetails={false}
               showExtras={true}
               showActionIcons={true}
@@ -57,6 +57,9 @@ const Products = () => {
           </Col>
         ))}
       </Row>
+
+       {loading && <Spin size="large" style={{ display: 'block', margin: '30px auto' }} />}
+
     </div>
   );
 };

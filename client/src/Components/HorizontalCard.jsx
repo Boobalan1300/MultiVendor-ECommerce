@@ -44,7 +44,7 @@ const HorizontalCard = ({
                                     disabled
                                     defaultValue={product.rating}
                                     style={{
-                                        fontSize: 12,
+                                         fontSize: 8,
                                         color: '#faad14',
                                     }}
                                 />

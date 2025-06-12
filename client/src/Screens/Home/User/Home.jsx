@@ -17,7 +17,7 @@ const Home = () => {
 
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '16px' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2px' }}>
       <Title>Deals Hot Of The Day</Title>
 
       <Row gutter={[16, 16]} style={{ padding: '16px 0px' }}>
@@ -35,7 +35,7 @@ const Home = () => {
         ))}
       </Row>
 
-      <Row gutter={[16, 16]} style={{ padding: "50px" }}>
+      <Row gutter={[16, 16]} style={{ padding: "10px" }}>
         {moreProducts.map((product) => (
           <Col xs={24} sm={12} md={12} lg={6} key={product.id}>
             <HorizontalCard
@@ -50,7 +50,6 @@ const Home = () => {
       </Row>
 
       <Row gutter={[16, 24]}>
-
 
         <Col xs={24} sm={24} md={12} lg={8}>
           <InfoCard
@@ -84,12 +83,12 @@ const Home = () => {
         </Col>
       </Row>
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '16px' }}>
-        <Title>Top Categories & Products</Title>
+      <div style={{ maxWidth: '1200px', margin: '0 auto',marginTop:"50px",marginBottom:"50px"}}>
+        <Title style={{marginBottom:"20px"}}>Top Categories & Products</Title>
 
         <Row gutter={24}>
 
-          <Col xs={24} sm={8} md={6} lg={5}>
+          <Col xs={24} sm={8} md={6} lg={5} style={{marginBottom:"30px"}}>
             <List
               size="small"
               header={<div style={{ fontWeight: 'bold', fontSize: 18 }}>Categories</div>}
@@ -112,10 +111,10 @@ const Home = () => {
                     product={product}
                     fontSize="text-xl"
 
-                    imageHeight={180}
+                    imageHeight={140}
                     showDetails={false}
                     showExtras={false}
-                    showActionIcons={true} // show heart , button
+                    showActionIcons={true} 
                     bordered
                   />
                 </Col>
@@ -153,7 +152,7 @@ const Home = () => {
 
       <div style={{ textAlign: 'center', margin: '40px 0' }}>
         <Title>Latest Blog Posts</Title>
-        <p style={{ fontSize: '16px', color: '#666', marginTop: '8px' }}>
+        <p style={{ fontSize: '16px', color: '#666', marginTop: '8px',marginBottom:"30px" }}>
           Stay updated with our latest news and articles
         </p>
 

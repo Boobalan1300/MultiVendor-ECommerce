@@ -67,7 +67,7 @@ const Cart = () => {
     };
 
     return (
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: 24 }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <Title level={3}>
                 <ShoppingCartOutlined style={{ marginRight: 8 }} />
                 Shopping Cart ({totalItems} items)
@@ -86,7 +86,7 @@ const Cart = () => {
                         </Col>
                     </Row>
 
-                    {/* Responsive Row with Cart Items and Order Summary */}
+                  
                     <Row gutter={[24, 24]}>
                         {/* Cart Items Column */}
                         <Col xs={24} lg={16}>
@@ -105,11 +105,11 @@ const Cart = () => {
                                         <Image src={item.image} alt={item.title} width={80} />
                                     </Col>
 
-                                    <Col xs={18} sm={6}>
+                                    <Col xs={10} sm={6}>
                                         <Text strong>{item.title}</Text>
                                     </Col>
 
-                                    <Col xs={24} sm={6}>
+                                    <Col xs={6} sm={6}>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                                             <Button
                                                 icon={<MinusOutlined />}
@@ -129,19 +129,19 @@ const Cart = () => {
                                         </div>
                                     </Col>
 
-                                    <Col xs={12} sm={3}>
+                                    <Col xs={8} sm={3}>
                                         <Text>Rs.{item.price}</Text>
                                     </Col>
 
-                                    <Col xs={12} sm={3}>
+                                    <Col xs={8} sm={3}>
                                         <Text strong>Rs.{(item.quantity * item.price).toFixed(2)}</Text>
                                     </Col>
 
-                                    <Col xs={24} sm={2}>
+                                    <Col xs={6} sm={2}>
                                         <Button
                                             icon={<DeleteOutlined />}
                                             danger
-                                            type="primary"
+                                            type="danger"
                                             htmlType="button"
                                             block={false}
                                             onClick={() => removeItem(item.id)}
